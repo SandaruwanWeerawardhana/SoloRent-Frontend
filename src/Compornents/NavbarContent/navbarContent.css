@@ -1,0 +1,58 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    font-weight:bold ;
+}
+body.hover{
+    color: red;
+}
+.container {
+    width: 85%;
+    margin: 0 auto;
+    
+}
+
+header {
+    background: #111827;
+    color: #ffffff;
+}
+
+header .logo img {
+    height: 44px;
+}
+.logo{
+    width: 50px;
+    height: 40px;
+    align-items: center;
+    padding-top: 20px;
+    
+}
+    
+header nav ul {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    padding-top: 5;
+}
+
+header nav ul li {
+    padding: auto;
+    margin-left: 50px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+
