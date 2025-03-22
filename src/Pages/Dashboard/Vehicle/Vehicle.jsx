@@ -1,6 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 
 function vehicle() {
+  const [inputData, setinputData] = useState({
+    brand: "",
+    fuelType: "",
+    year: "",
+    pricePerDay: "",
+    description: "",
+    imageURl: "",
+    status: "AVAILABLE",
+  });
+
+  const handleChange = (e) => {
+    setinputData({ ...inputData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(inputData),
+        redirect: "follow",
+      };
+
+      const response = await fetch(
+        "http://localhost:8080/api/solorent/vehicle/add",
+        requestOptions
+      );
+
+      if (response.ok) {
+        alert("registered successfully!");
+      } else {
+        const errorText = await response.text();
+        console.error("Server error:", errorText);
+        alert("Failed to register admin.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Error registering admin.");
+    }
+  };
+
   return (
     <>
       <section class="bg-white dark:bg-gray-900">
@@ -8,7 +53,7 @@ function vehicle() {
           <h2 class="mb-4 text-3xl font-bold text-gray-900 dark:text-white text-center ">
             Vehicle Register
           </h2>
-          <form action="#">
+          <form action="#" onSubmit={handleSubmit}>
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div class="w-full">
                 <label
@@ -20,7 +65,8 @@ function vehicle() {
                 <input
                   type="text"
                   name="brand"
-                  id="brand"
+                  value={inputData.brand}
+                  onChange={handleChange}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Vehicle brand"
                   required=""
@@ -34,7 +80,9 @@ function vehicle() {
                   Category
                 </label>
                 <select
-                  id="category"
+                  name="fuelType"
+                  value={inputData.fuelType}
+                  onChange={handleChange}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 >
                   <option selected="">Select Fuel Type</option>
@@ -47,15 +95,15 @@ function vehicle() {
                   for="Year"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
-                  Year
+                  Vehicle Register Number
                 </label>
                 <input
                   type="text"
-                  name="Year"
-                  id="Year"
+                  name="year"
+                  value={inputData.year}
+                  onChange={handleChange}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Manufacturer Year"
-                  required=""
                 />
               </div>
               <div class="w-full">
@@ -67,11 +115,11 @@ function vehicle() {
                 </label>
                 <input
                   type="text"
-                  name="Price"
-                  id="Price"
+                  name="pricePerDay"
+                  value={inputData.pricePerDay}
+                  onChange={handleChange}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Price Per Date"
-                  required=""
                 />
               </div>
 
@@ -80,15 +128,15 @@ function vehicle() {
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   for="file_input"
                 >
-                 Image
+                  Image
                 </label>
                 <input
                   type="text"
-                  name="Price"
-                  id="Price"
+                  name="imageURl"
+                  value={inputData.imageURl}
+                  onChange={handleChange}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Image link"
-                  required=""
                 />
               </div>
 
@@ -100,7 +148,9 @@ function vehicle() {
                   Description
                 </label>
                 <textarea
-                  id="description"
+                  name="description"
+                  value={inputData.description}
+                  onChange={handleChange}
                   rows="8"
                   class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Description"
@@ -109,7 +159,7 @@ function vehicle() {
             </div>
             <div class="flex items-center justify-between mt-6">
               <button
-                type="button"
+                type="submit"
                 class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50font-medium rounded-lg text-4sm px-5 py-2.5  items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6] dark:focus:ring-[#2557D6]/50"
               >
                 Add Vehicle

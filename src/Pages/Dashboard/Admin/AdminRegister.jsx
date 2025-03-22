@@ -1,56 +1,49 @@
 import React, { useState } from "react";
 
 function AdminRegister() {
-    
   const [inputData, setinputData] = useState({
-    name:'',
-    nic:'',
-    email:'',
-    password:'',
-    confirmPassword:''
+    name: "",
+    nic: "",
+    email: "",
+    password: "",
   });
 
-  const handleChange= (e) =>{
-    setinputData({...inputData, [e.target.name]: e.target.value});
+  const handleChange = (e) => {
+    setinputData({ ...inputData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) =>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if(inputData.password !== inputData.confirmPassword){
-        alert("Passwords do not match!");
-        return;
+  
+    if (inputData.password !== inputData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
     }
-
-    try{
-
-        const response = await fetch("http://localhost:8080/api/solorent/admin/add", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              name: formData.name,
-              nic: formData.nic,
-              email: formData.email,
-              password: formData.password,
-            }),
-          });
-
-          if(response.ok){
-            alert("Admin registered successfully!");
-            // setFormData({ email: "", password: "", confirmPassword: "" });
-          }else {
-            alert("Failed to register admin.");
-          }
-
-    }catch{
-        console.error(error);
+  
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inputData),
+        redirect: "follow",
+      };
+  
+      const response = await fetch("http://localhost:8080/api/solorent/admin/add", requestOptions);
+      
+      if (response.ok) {
+        alert("Admin registered successfully!");
+      } else {
+        const errorText = await response.text();
+        console.error("Server error:", errorText);
+        alert("Failed to register admin.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
       alert("Error registering admin.");
     }
-
   };
-
 
   return (
     <>
@@ -80,10 +73,7 @@ function AdminRegister() {
                   />
                 </div>
                 <div>
-                  <label
-                    
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
+                  <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Name
                   </label>
                   <input
@@ -151,6 +141,7 @@ function AdminRegister() {
                   <button
                     type="submit"
                     class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50font-medium rounded-lg text-4sm px-5 py-2.5  items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6] dark:focus:ring-[#2557D6]/50"
+
                   >
                     ADD
                   </button>
