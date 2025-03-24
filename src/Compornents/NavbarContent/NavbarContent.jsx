@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 function NavbarContent() {
   return (
     <>
-      <header>
-        <div className="container fixed-top ">
+      <header className="">
+        <div className="container fixed-top  ">
           <nav>
       
             <div className="logo">
@@ -21,10 +21,10 @@ function NavbarContent() {
             </div>
     
             <ul class="pb-5 pt-0 ">
-              <MenuContent linkname="HOME" url="/home" />
-              <MenuContent linkname="FAQ" url="/FAQ" />
-              <MenuContent linkname="BOOKING" url="/booking" />
-              <MenuContent linkname="CONTACT US" url="/contact" />
+              <MenuContent linkname="Home" url="/home" />
+              <MenuContent linkname="Vehicles" url="/FAQ" />
+              <MenuContent linkname="Booking" url="/booking" />
+              <MenuContent linkname="About" url="/contact" />
             </ul>
           </nav>
         </div>

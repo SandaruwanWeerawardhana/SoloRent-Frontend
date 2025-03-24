@@ -5,22 +5,24 @@ import DatePicker from "../../Compornents/InputFields/DatePicker";
 
 function BookingForm() {
   const [inputData, setinputData] = useState({
-    customerName: "",
-    email: "",
-    contact: "",
-    vehicleID: "",
-    startDate: "",
-    endDate: "",
-    pickupTime: "",
-    pickupLocation: "",
-    returnLocation: "",
-    description: "",
-    bookingDateTime: "",
-    bookingStatus: "PENDING",
+  customerName: "",
+  email: "",
+  contact: "",
+  vehicleID: "",
+  startDate: "",
+  endDate: "",
+  pickupTime: "",
+  pickupLocation: "",
+  returnLocation: "",
+  description: "",
+  bookingStatus: "PENDING"
   });
+
+  console.log("Submitting data:", inputData);
 
   const handleChange = (e) => {
     setinputData({ ...inputData, [e.target.name]: e.target.value });
+    
   };
 
   const handleSubmit = async (e) => {
@@ -70,13 +72,12 @@ function BookingForm() {
           <hr className="mt-3 mb-3 " />
           <form action="#" onSubmit={handleSubmit}>
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-
-              <TextField 
-              titleName="Your Name" 
-              placeholder="Your Name" 
-              name="customerName"
-              value={inputData.customerName}
-              onChange={handleChange}
+              <TextField
+                titleName="Your Name"
+                placeholder="Your Name"
+                name="customerName"
+                value={inputData.customerName}
+                onChange={handleChange}
               />
 
               <TextField
@@ -103,16 +104,16 @@ function BookingForm() {
                 onChange={handleChange}
               />
 
-              <DatePicker
-                title="Pickup Location"
+              <TextField
+                titleName="Pickup Location"
                 placeholder="Pickup Location"
                 name="pickupLocation"
                 value={inputData.pickupLocation}
                 onChange={handleChange}
               />
 
-              <DatePicker
-                title="Drop Off Location"
+              <TextField
+                titleName="Drop Off Location"
                 placeholder="Drop Off Location"
                 name="returnLocation"
                 value={inputData.returnLocation}
@@ -158,7 +159,6 @@ function BookingForm() {
               <button
                 type="button"
                 class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-
                 onClick={() =>
                   setinputData({
                     customerName: "",

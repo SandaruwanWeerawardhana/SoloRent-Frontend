@@ -3,12 +3,14 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    
 }
 
 body {
     font-family: Arial, sans-serif;
     line-height: 1;
     font-weight:bold ;
+    
 }
 body.hover{
     color: red;
@@ -16,12 +18,13 @@ body.hover{
 .container {
     width: 85%;
     margin: 0 auto;
-    
+  
 }
 
 header {
     background: #111827;
     color: #ffffff;
+
 }
 
 header .logo img {

@@ -6,7 +6,7 @@ function AdminLogin() {
   return (
     <>
       <section class="bg-gray-70 dark:bg-gray-700">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div class="flex flex-col items-center justify-center px-6 py-5 mx-auto md:h-screen lg:py-0">
           <div class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img class="w-13 h-12 mr-2" src={logo} alt="logo" />
           </div>
@@ -58,15 +58,6 @@ function AdminLogin() {
                   </button>
 
                 </Link>
-                <p class="text-sm font-light text-gray-500 dark:text-gray-200 text-center">
-                  Don’t have an account yet?{" "}
-                  <a
-                    href="#"
-                    class="font-medium text-primary-600 hover:underline dark:text-primary-500 hover:text-[#2057D6]"
-                  >
-                    Sign up
-                  </a>
-                </p>
               </form>
             </div>
           </div>
