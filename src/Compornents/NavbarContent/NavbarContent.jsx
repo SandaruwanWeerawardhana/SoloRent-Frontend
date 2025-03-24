@@ -22,8 +22,8 @@ function NavbarContent() {
     
             <ul class="pb-5 pt-0 ">
               <MenuContent linkname="Home" url="/home" />
-              <MenuContent linkname="Vehicles" url="/FAQ" />
-              <MenuContent linkname="Booking" url="/booking" />
+              <MenuContent linkname="Booking" url="/FAQ" />
+              <MenuContent linkname="Vehicles" url="/booking" />
               <MenuContent linkname="About" url="/contact" />
             </ul>
           </nav>

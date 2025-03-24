@@ -1,134 +1,56 @@
-import React from "react";
+import { useState, useEffect }  from "react";
 import "./booking.css";
 import { Link } from "react-router-dom";
 
 function booking() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/solorent/booking/get-all")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      });
+  },[]);
+
   return (
     <>
       <div className="grid-container container">
         <div class="card-container container">
-
-
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQibkXkmxZVCfBPEMPzeMX7PZOc0M16mGmO6Q&s"
-                alt="Nissan Sunny"
-              />
-            </div>
-            <div class="card-content">
-              <h2>NISSAN SUNNY</h2>
-              <div class="tabs mt-4">
-                <table>
-                  <tr>
-                    <td>FUEL TYPE</td>
-                    <td>PRICE PER DAY</td>
-                    <td>TERMS & CONDITIONS</td>
-                  </tr>
-                  <br />
-                  <tr className="m-3">
-                    <td>petrol</td>
-                    <td>85555</td>
-                    <td>sdss</td>
-                  </tr>
-                </table>
+          {data.map((el) => (
+            <div class="card container">
+              <div class="card-image">
+                <img
+                  src={el.imageURl}
+                  alt={el.brand}
+                />
               </div>
-              <Link to="/bookingform">
-                <button class="select-btn">Select</button>
-              </Link>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQibkXkmxZVCfBPEMPzeMX7PZOc0M16mGmO6Q&s"
-                alt="Nissan Sunny"
-              />
-            </div>
-            <div class="card-content">
-              <h2>NISSAN SUNNY</h2>
-              <div class="tabs mt-4">
-                <table>
-                  <tr>
-                    <td>FUEL TYPE</td>
-                    <td>PRICE PER DAY</td>
-                    <td>TERMS & CONDITIONS</td>
-                  </tr>
-                  <br />
-                  <tr className="m-3">
-                    <td>petrol</td>
-                    <td>85555</td>
-                    <td>sdss</td>
-                  </tr>
-                </table>
+              <div class="card-content">
+                <h2>{el.brand}</h2>
+                <div class="tabs mt-4">
+                  <table>
+                    <tr>
+                      <td>FUEL TYPE</td>
+                      <td>PRICE PER DAY</td>
+                      <td>TERMS & CONDITIONS</td>
+                    </tr>
+                    <br />
+                    <tr className="m-3">
+                      <td>{el.fuelType}</td>
+                      <td>{el.pricePerDay}</td>
+                      <td>{el.status}</td>
+                    </tr>
+                  </table>
+                </div>
+                <Link to="/bookingform">
+                  <button class="select-btn">Select</button>
+                </Link>
               </div>
-              <Link to="/bookingform">
-                <button class="select-btn">Select</button>
-              </Link>
             </div>
-          </div>
-
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQibkXkmxZVCfBPEMPzeMX7PZOc0M16mGmO6Q&s"
-                alt="Nissan Sunny"
-              />
-            </div>
-            <div class="card-content">
-              <h2>NISSAN SUNNY</h2>
-              <div class="tabs mt-4">
-                <table>
-                  <tr>
-                    <td>FUEL TYPE</td>
-                    <td>PRICE PER DAY</td>
-                    <td>TERMS & CONDITIONS</td>
-                  </tr>
-                  <br />
-                  <tr className="m-3">
-                    <td>petrol</td>
-                    <td>85555</td>
-                    <td>sdss</td>
-                  </tr>
-                </table>
-              </div>
-              <Link to="/bookingform">
-                <button class="select-btn">Select</button>
-              </Link>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-image">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQibkXkmxZVCfBPEMPzeMX7PZOc0M16mGmO6Q&s"
-                alt="Nissan Sunny"
-              />
-            </div>
-            <div class="card-content">
-              <h2>NISSAN SUNNY</h2>
-              <div class="tabs mt-4">
-                <table>
-                  <tr>
-                    <td>FUEL TYPE</td>
-                    <td>PRICE PER DAY</td>
-                    <td>TERMS & CONDITIONS</td>
-                  </tr>
-                  <br />
-                  <tr className="m-3">
-                    <td>petrol</td>
-                    <td>85555</td>
-                    <td>sdss</td>
-                  </tr>
-                </table>
-              </div>
-              <Link to="/bookingform">
-                <button class="select-btn">Select</button>
-              </Link>
-            </div>
-          </div>
-
+          ))}
 
         </div>
       </div>
