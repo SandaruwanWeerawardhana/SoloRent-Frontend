@@ -3,7 +3,6 @@ import NavbarContent from "./Compornents/NavbarContent/NavbarContent.jsx";
 import "./index.css";
 import Home from "./Pages/home/Home.jsx";
 import Contact from "./Pages/contactUs/Contact.jsx";
-import FAQ from "./Pages/FAQ/FAQ.jsx";
 import Booking from "./Pages/Booking/booking.jsx";
 import AdminLogin from "./Pages/Dashboard/Admin/AdminLogin.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
@@ -21,7 +20,7 @@ function App() {
         <NavbarContent />
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="/FAQ" element={<FAQ />} />
+          {/* <Route path="/FAQ" element={<FAQ />} /> */}
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<Home />} />
@@ -41,9 +40,6 @@ function App() {
         </Routes>
       </Router>
 
-      {/* <AdminLogin></AdminLogin> */}
-
-      {/* <Vehicle></Vehicle> */}
     </>
   );
 }

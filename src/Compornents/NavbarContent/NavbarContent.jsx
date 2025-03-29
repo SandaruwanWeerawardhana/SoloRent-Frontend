@@ -1,20 +1,20 @@
 import React from "react";
 import "./navbarContent.css";
 import MenuContent from "../MenuContent/MenuContent";
-import logo from "../../assets/logo.png";
+import logov from "../../assets/logov.png";
 import { Link } from "react-router-dom";
 
 function NavbarContent() {
   return (
     <>
-      <header className="">
+      <header>
         <div className="container fixed-top  ">
           <nav>
       
             <div className="logo">
             <Link to="/login">
                 <img
-                  src={logo}
+                  src={logov}
                   alt="Company Logo"
                 />
             </Link>

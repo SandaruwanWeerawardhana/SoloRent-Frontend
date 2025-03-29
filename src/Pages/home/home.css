@@ -1,69 +1,68 @@
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
 
-
-
-.title{
-    color: rgba(219, 18, 18, 0.636);
+.title {
+  color: rgba(219, 18, 18, 0.636);
 }
 
-.ImageCardsize{
-    width: 365px;
-    height: 250px;
+.ImageCardsize {
+  width: 365px;
+  height: 250px;
 }
 
- /* ========================================== Carousel ===================================== */
+/* ========================================== Carousel ===================================== */
 
- .carousel-container {
-    width: 1600px;
-    height: 560px;
-    margin: 0 auto;
-    position: cover;
-    overflow: hidden;
-    background-color: black;
+.carousel-container {
+  border-radius: 20px;
+  width: 1300px;
+  height: 630px;
+  margin: 0 auto;
+  position: cover;
+  overflow: hidden;
+  background-color: black;
+  margin-top: 34px;
+}
 
-  }
-  
-  .carousel-items {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-  }
-  
-  .carousel-item {
-    min-width: 100%;
-    height: 700px;
-  }
-  
-  .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    z-index: 10;
-  }
-  
-  .carousel-button:hover {
-    background: rgba(0, 0, 0, 0.8);
-  }
-  
-  .prev {
-    left: 0;
-    border-radius: 0 5px 5px 0;
-  }
-  
-  .next {
-    right: 0;
-    border-radius: 5px 0 0 5px;
-  }
+.carousel-items {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.carousel-item {
+  min-width: 100%;
+  height: 700px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 5px 0 0 5px;
+}

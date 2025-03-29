@@ -4,7 +4,7 @@ import"./menuContent.css"
 
 function MenuContent(props) {
   return (
-    <li className='hover'><Link to={props.url}>{props.linkname}</Link></li>
+    <li><Link to={props.url}>{props.linkname}</Link></li>
   )
 }
 
