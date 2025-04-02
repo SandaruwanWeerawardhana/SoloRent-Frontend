@@ -8,6 +8,7 @@ import friends from "../../assets/carsousel/friends.jpg";
 import frontview from "../../assets/carsousel/frontview.jpg";
 import sideview from "../../assets/carsousel/sideview.jpg";
 import { Link } from "react-router-dom";
+import FooterContent from "../../Compornents/FooterContent";
 
 function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -395,6 +396,7 @@ function Home() {
             </div>
           </div>
         </footer>
+        
       </BodyContent>
     </>
   );

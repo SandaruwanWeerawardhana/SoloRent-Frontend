@@ -3,6 +3,56 @@ import logo from "../../../assets/logo.png";
 import { Link } from "react-router-dom";
 
 function AdminLogin() {
+
+  const initialState = useState({
+      name: "",
+      username: "",
+      password: "",
+      role: "ADMIN",
+      confirmPassword: ""
+    });
+  
+    const [inputData, setinputData] = useState(initialState);
+  
+    const handleChange = (e) => {
+      setinputData({ ...inputData, [e.target.name]: e.target.value });
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+    
+      if (inputData.password !== inputData.confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+    
+      try {
+        const requestOptions = {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(inputData),
+          redirect: "follow",
+        };
+    
+        const response = await fetch("http://localhost:8080/register", requestOptions);
+        
+        if (response.ok) {
+          alert("Admin registered successfully!");
+          setinputData(initialState);
+          
+        } else {
+          const errorText = await response.text();
+          console.error("Server error:", errorText);
+          alert("Failed to register admin.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Error registering admin.");
+      }
+    };
+  
   return (
     <>
       <section class="bg-gray-70 dark:bg-gray-700">

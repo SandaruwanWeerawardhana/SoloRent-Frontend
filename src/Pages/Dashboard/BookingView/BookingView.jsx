@@ -53,9 +53,9 @@ function BookingView() {
               <th scope="col" class="px-6 py-3">
                 Status
               </th>
-              <th scope="col" class="px-6 py-3">
+              {/* <th scope="col" class="px-6 py-3">
                 Total Price
-              </th>
+              </th> */}
               <th scope="col" class="px-6 py-3">
                 Action
               </th>
@@ -82,7 +82,7 @@ function BookingView() {
                 <td class="px-6 py-4"> {row.pickupLocation} </td>
                 <td class="px-6 py-4"> {row.returnLocation} </td>
                 <td class="px-6 py-4"> {row.bookingStatus} </td>
-                <td class="px-6 py-4"> [] </td>
+                {/* <td class="px-6 py-4"> [] </td> */}
 
                 <td class="px-6 py-4 text-right">
                   <a

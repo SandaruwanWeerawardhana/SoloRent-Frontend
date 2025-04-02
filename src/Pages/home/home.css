@@ -14,13 +14,13 @@
 
 .carousel-container {
   border-radius: 20px;
-  width: 1300px;
-  height: 630px;
+  width: 1200px;
+  height: 620px;
   margin: 0 auto;
   position: cover;
   overflow: hidden;
   background-color: black;
-  margin-top: 34px;
+  margin-top: 38px;
 }
 
 .carousel-items {

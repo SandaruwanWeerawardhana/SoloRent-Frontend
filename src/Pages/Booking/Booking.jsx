@@ -6,7 +6,7 @@ function booking() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/solorent/booking/get-all")
+    fetch("http://localhost:8080/api/solorent/vehicle/get-all")
       .then((res) => {
         return res.json();
       })
@@ -18,7 +18,7 @@ function booking() {
 
   return (
     <>
-      <div className="grid-container container">
+      <div className="grid-container container float-start">
         <div class="card-container container">
           {data.map((el) => (
             <div class="card container">

@@ -1,13 +1,13 @@
 import React from "react";
 
-function FooterContent() {
+function FooterContent(props) {
   return (
     <footer className="bg-white dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
             <a href="#" className="flex items-center">
-              <img src={logo} className="h-15 me-8" alt="SoloRent Logo" />
+              <img src={props.src} className="h-15 me-8" alt="SoloRent Logo" />
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

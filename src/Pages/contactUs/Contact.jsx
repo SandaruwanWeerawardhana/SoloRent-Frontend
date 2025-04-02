@@ -61,7 +61,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="social-media">
+            {/* <div className="social-media">
               <a href="#" className="social-icon">
                 f
               </a>
@@ -74,7 +74,7 @@ export default function Contact() {
               <a href="#" className="social-icon">
                 ig
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Form */}
