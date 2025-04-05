@@ -1,48 +1,53 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 function vehicle() {
   const [inputData, setinputData] = useState({
     brand: "",
     fuelType: "",
-    year: "",
+    registerNumber: "",
     pricePerDay: "",
     description: "",
     imageURl: "",
-    status: "AVAILABLE",
   });
 
   const handleChange = (e) => {
     setinputData({ ...inputData, [e.target.name]: e.target.value });
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+
+    const token = localStorage.getItem("token");
+    console.log("accessToken" + token);
 
     try {
-      const requestOptions = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(inputData),
-        redirect: "follow",
-      };
-
-      const response = await fetch(
+      const res = await axios.post(
         "http://localhost:8080/api/solorent/vehicle/add",
-        requestOptions
+        inputData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${token}`,
+          },
+        }
       );
-
-      if (response.ok) {
-        alert("registered successfully!");
-      } else {
-        const errorText = await response.text();
-        console.error("Server error:", errorText);
-        alert("Failed to register admin.");
-      }
+  
+        Swal.fire({
+          title: "Vehicle registered successfully!",
+          icon: "success",
+        });
+     
     } catch (error) {
       console.error("Error:", error);
-      alert("Error registering admin.");
+      Swal.fire({
+        title: "Error registering Vehicle!",
+        icon: "error",
+      });
     }
   };
 
@@ -99,11 +104,11 @@ function vehicle() {
                 </label>
                 <input
                   type="text"
-                  name="year"
-                  value={inputData.year}
+                  name="registerNumber"
+                  value={inputData.registerNumber}
                   onChange={handleChange}
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Manufacturer Year"
+                  placeholder=" Register Number"
                 />
               </div>
               <div class="w-full">

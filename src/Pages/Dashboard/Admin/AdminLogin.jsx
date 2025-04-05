@@ -6,6 +6,8 @@ import Swal from "sweetalert2";
 
 function AdminLogin() {
   const initialState = useState({
+    id: "",
+    name: "",
     username: "",
     password: "",
   });
@@ -22,6 +24,8 @@ function AdminLogin() {
 
     try {
       const response = await axios.post("http://localhost:8080/login", {
+        id: inputData.id,
+        name: inputData.name,
         username: inputData.username,
         password: inputData.password,
       });
