@@ -1,13 +1,13 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 function AdminRegister() {
-
   const initialState = useState({
     name: "",
     username: "",
     password: "",
     role: "ADMIN",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const [inputData, setinputData] = useState(initialState);
@@ -18,36 +18,44 @@ function AdminRegister() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (inputData.password !== inputData.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
-  
+
     try {
       const requestOptions = {
         method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(inputData),
         redirect: "follow",
       };
-  
-      const response = await fetch("http://localhost:8080/register", requestOptions);
-      
+
+      const response = await fetch("http://localhost:8080/register",requestOptions);
+
       if (response.ok) {
-        alert("Admin registered successfully!");
+        Swal.fire({
+          title: "Admin Register Success",
+          icon: "success",
+        });
         setinputData(initialState);
-        
       } else {
-        const errorText = await response.text();
-        console.error("Server error:", errorText);
-        alert("Failed to register admin.");
+        Swal.fire({
+          title: "Admin Register Fail!",
+          text: "Required fill all text field",
+          icon: "error",
+        });
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Error registering admin.");
+      Swal.fire({
+        title: "Admin Register Fail!",
+        text: "Required fill all text field",
+        icon: "error",
+      });
     }
   };
 
@@ -130,7 +138,6 @@ function AdminRegister() {
                   <button
                     type="submit"
                     class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50font-medium rounded-lg text-4sm px-5 py-2.5  items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6] dark:focus:ring-[#2557D6]/50"
-
                   >
                     ADD
                   </button>

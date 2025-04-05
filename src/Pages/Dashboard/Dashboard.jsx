@@ -1,8 +1,14 @@
 import React from "react";
 import logo from "../../assets/logo.png";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link,useNavigate } from "react-router-dom";
 
 function Dashboard() {
+const navigate = useNavigate();
+  const handleLogout  = () =>{
+    localStorage.removeItem("token")
+    navigate("/home")
+  } 
+
   return (
     <>
       <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -135,7 +141,7 @@ function Dashboard() {
               </li>
             </Link>
 
-            <Link to="/home">
+
               <li>
                 <a
                   href="#"
@@ -156,10 +162,10 @@ function Dashboard() {
                       d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
                     />
                   </svg>
-                  <span class="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
+                  <span class="flex-1 ms-3 whitespace-nowrap"><button onClick={handleLogout}>Sign Out</button></span>
                 </a>
               </li>
-            </Link>
+  
           </ul>
         </div>
       </aside>

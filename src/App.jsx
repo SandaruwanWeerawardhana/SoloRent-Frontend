@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,Navigate } from "react-router-dom";
 import NavbarContent from "./Compornents/NavbarContent/NavbarContent.jsx";
 import "./index.css";
 import Home from "./Pages/home/Home.jsx";
@@ -10,8 +10,13 @@ import Vehicle from "./Pages/Dashboard/Vehicle/vehicle.jsx";
 import BookingView from "./Pages/Dashboard/BookingView/BookingView.jsx";
 import BookingForm from "./Pages/Booking/BookingForm.jsx";
 // import VehicleView from "./Pages/Dashboard/Vehicle/VehicleView.jsx";
-import DashboardView from "./Pages/Dashboard/DashboardView.jsx";
 import AdminRegister from "./Pages/Dashboard/Admin/AdminRegister.jsx";
+import DashboardLanding from "./Pages/Dashboard/DashboardLanding.jsx";
+
+function ProtectedRoute({ children }) {
+  const token = localStorage.getItem("token");
+  return token ? children : <Navigate to="/login" />;
+}
 
 function App() {
   return (
@@ -29,12 +34,12 @@ function App() {
         </Routes>
         
         <Routes>
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route index element={<DashboardView />} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} >
+            <Route index element={<DashboardLanding />} />
             <Route path="vehicle" element={<Vehicle />} />
             <Route path="bookingview" element={<BookingView />} />
             {/* <Route path="vehicleview" element={<VehicleView />} /> */}
-            <Route path="dashboardview" element={<DashboardView />} />
+            <Route path="dashboardview" element={<DashboardLanding />} />
             <Route path="adminregister" element={<AdminRegister />} />
           </Route>
         </Routes>

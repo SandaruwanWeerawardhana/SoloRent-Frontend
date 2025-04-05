@@ -1,58 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function AdminLogin() {
-
   const initialState = useState({
-      name: "",
-      username: "",
-      password: "",
-      role: "ADMIN",
-      confirmPassword: ""
-    });
-  
-    const [inputData, setinputData] = useState(initialState);
-  
-    const handleChange = (e) => {
-      setinputData({ ...inputData, [e.target.name]: e.target.value });
-    };
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-    
-      if (inputData.password !== inputData.confirmPassword) {
-        alert("Passwords do not match!");
-        return;
+    username: "",
+    password: "",
+  });
+
+  const [inputData, setinputData] = useState(initialState);
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setinputData({ ...inputData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:8080/login", {
+        username: inputData.username,
+        password: inputData.password,
+      });
+
+      console.log(response.data);
+
+      const token = response.data.access_token;
+      if (token) {
+        localStorage.setItem("token", token);
+        setinputData(initialState);
+        navigate("/dashboard");
+      } else {
+        throw new Error("No token received");
       }
-    
-      try {
-        const requestOptions = {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(inputData),
-          redirect: "follow",
-        };
-    
-        const response = await fetch("http://localhost:8080/register", requestOptions);
-        
-        if (response.ok) {
-          alert("Admin registered successfully!");
-          setinputData(initialState);
-          
-        } else {
-          const errorText = await response.text();
-          console.error("Server error:", errorText);
-          alert("Failed to register admin.");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        alert("Error registering admin.");
-      }
-    };
-  
+    } catch (error) {
+      console.error("Login error:", error);
+      Swal.fire({
+        title: "Admin Login Fail!",
+        text: "Required Correct Username And Password",
+        icon: "error",
+      });
+    }
+  };
+
   return (
     <>
       <section class="bg-gray-70 dark:bg-gray-700">
@@ -65,7 +58,7 @@ function AdminLogin() {
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
                 Sign in for Admin Only
               </h1>
-              <form class="space-y-4 md:space-y-6" action="#">
+              <form class="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label
                     for="email"
@@ -75,8 +68,10 @@ function AdminLogin() {
                   </label>
                   <input
                     type="email"
-                    name="email"
+                    name="username"
                     id="email"
+                    onChange={handleChange}
+                    value={inputData.username}
                     class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@gmail.com"
                     required=""
@@ -93,21 +88,20 @@ function AdminLogin() {
                     type="password"
                     name="password"
                     id="password"
+                    onChange={handleChange}
+                    value={inputData.password}
                     placeholder="••••••••"
                     class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required=""
                   />
                 </div>
-                <Link to="/dashboard">
 
-                  <button
-                    type="button"
-                    class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50font-medium rounded-lg text-sm px-5 py-2.5  items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6] dark:focus:ring-[#2557D6]/50 mt-5"
-                  >
-                    Sign in
-                  </button>
-
-                </Link>
+                <button
+                  type="submit"
+                  class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50font-medium rounded-lg text-sm px-5 py-2.5  items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6] dark:focus:ring-[#2557D6]/50 mt-5"
+                >
+                  Sign in
+                </button>
               </form>
             </div>
           </div>
