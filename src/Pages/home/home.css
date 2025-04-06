@@ -14,8 +14,8 @@
 
 .carousel-container {
   border-radius: 20px;
-  width: 1200px;
-  height: 620px;
+  width: 1500px;
+  height: 690px;
   margin: 0 auto;
   position: cover;
   overflow: hidden;
@@ -65,4 +65,21 @@
 .next {
   right: 0;
   border-radius: 5px 0 0 5px;
+}
+
+/* ====================================================================== */
+
+.best-event {
+  padding: 5rem ;
+  text-align: center;
+  
+  
+}
+.bento-event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto responsive */
+  gap: 1.5rem;
+  max-width: 1750px;
+  margin: auto;
+  padding: 0 1rem;
 }

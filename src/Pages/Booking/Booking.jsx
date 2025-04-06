@@ -2,6 +2,7 @@ import { useState, useEffect }  from "react";
 import "./booking.css";
 import { Link } from "react-router-dom";
 
+
 function booking() {
   const [data, setData] = useState([]);
 
@@ -45,7 +46,7 @@ function booking() {
                     </tr>
                   </table>
                 </div>
-                <Link to="/bookingform">
+                <Link to="/bookingform" state={{vehicle:el}}>
                   <button class="select-btn">Select</button>
                 </Link>
               </div>

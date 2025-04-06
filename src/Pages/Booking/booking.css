@@ -7,7 +7,6 @@
     
   }
   
-
 .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr ;
@@ -78,4 +77,13 @@
 
 .select-btn:hover {
     background: #0d26e3;
+}
+
+/*====================================== Booking Form ===================================== */
+
+.bookingsize{
+    margin: auto;
+    width: 800px;
+    height: 200px;
+    margin-top: 2%; 
 }
