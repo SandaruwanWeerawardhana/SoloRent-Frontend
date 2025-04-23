@@ -12,6 +12,7 @@ import BookingForm from "./Pages/Booking/BookingForm.jsx";
 // import VehicleView from "./Pages/Dashboard/Vehicle/VehicleView.jsx";
 import AdminRegister from "./Pages/Dashboard/Admin/AdminRegister.jsx";
 import DashboardLanding from "./Pages/Dashboard/DashboardLanding.jsx";
+import Massage from "./Pages/Dashboard/Massage/Massage.jsx";
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
@@ -38,6 +39,7 @@ function App() {
             <Route index element={<DashboardLanding />} />
             <Route path="vehicle" element={<Vehicle />} />
             <Route path="bookingview" element={<BookingView />} />
+            <Route path="massage" element={<Massage />}/>
             {/* <Route path="vehicleview" element={<VehicleView />} /> */}
             <Route path="dashboardview" element={<DashboardLanding />} />
             <Route path="adminregister" element={<AdminRegister />} />

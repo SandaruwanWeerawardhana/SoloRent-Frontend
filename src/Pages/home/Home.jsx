@@ -8,9 +8,15 @@ import friends from "../../assets/carsousel/friends.jpg";
 import frontview from "../../assets/carsousel/frontview.jpg";
 import sideview from "../../assets/carsousel/sideview.jpg";
 import { Link } from "react-router-dom";
-import FooterContent from "../../Compornents/FooterContent";
+import FooterContent from "../../Compornents/FooterContent/FooterContent";
+import ChatWindow from "../../Compornents/ChatContent/Chatwindow";
+import { MessageCircleIcon, ArrowDown } from "lucide-react";
+import Faq from "../../Compornents/FAQ/Faq";
+import Offer from "../../Compornents/OfferContent/Offer";
+import Choose from "../../Compornents/ChooseContent/Choose";
 
 function Home() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalItems = 5;
   const autoScrollInterval = useRef(null);
@@ -34,170 +40,71 @@ function Home() {
     };
   }, []);
 
-  const handleMouseEnter = () => {
-    if (autoScrollInterval.current) {
-      clearInterval(autoScrollInterval.current);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    startAutoScroll();
-  };
-
   return (
     <>
       <BodyContent>
-        <div
-          className="carousel-container container mx-auto relative overflow-hidden"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div
-            className="carousel-items"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-          >
-            {[family, friends, frontview, sideview, first].map((img, index) => (
-              <div key={index} className="carousel-item">
-                <img src={img} alt={"Image"} />
+        <section className="relative  justify-content-center bg-black">
+          <div className="absolute h-100 inset-0 overflow-hidden opacity-50 ">
+            <div className="mx-auto w-full  max-w-[90vw] sm:max-w-[80vw] lg:max-w-[1550px]  rounded-3xl overflow-hidden bg-black">
+              <div
+                className="flex h-full w-full transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              >
+                {[family, friends, frontview, sideview, first].map(
+                  (img, index) => (
+                    <div key={index} className="flex-none w-full h-full">
+                      <img
+                        src={img}
+                        alt="Carousel image"
+                        className="w-full h-full object-fit-cover"
+                      />
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
 
-                {/* <div className="text-center text-5xl pt-5 ">
-                  <button
-                    type="button"
-                    class="text-white bg-[#2557D6] hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2"
-                  >
-                    Reserve your Vehicle Now
+          <div className="relative max-w-7xl mx-auto py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+            <div className="mt-10 my-20  mb-20">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center  sm:mb-6 lg:mb-8 text-white leading-tight tracking-tight max-w-4xl mx-auto  border-2 border-blue-500 p-3 mb-5">
+                Sri Lanka Rent Car
+              </h1>
+
+              <div className="text-center text-9xl pt-5 my-5 ">
+                <Link to="/booking">
+                  <button class="items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-transform duration-200 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group relative animate-rainbow cursor-pointer border-0 bg-[linear-gradient(#fff,#fff),linear-gradient(#fff_50%,rgba(255,255,255,0.6)_80%,rgba(0,0,0,0)),linear-gradient(90deg,hsl(0,100%,63%),hsl(90,100%,63%),hsl(210,100%,63%),hsl(195,100%,63%),hsl(270,100%,63%))] bg-[length:200%] text-foreground [background-clip:padding-box,border-box,border-box] [background-origin:border-box] [border:calc(0.08*1rem)_solid_transparent] before:absolute before:bottom-[-20%] before:left-1/2 before:z-[0] before:h-[20%] before:w-[60%] before:-translate-x-1/2 before:animate-rainbow before:bg-[linear-gradient(90deg,hsl(0,100%,63%),hsl(90,100%,63%),hsl(210,100%,63%),hsl(195,100%,63%),hsl(270,100%,63%))] before:[filter:blur(calc(0.8*1rem))] dark:bg-[linear-gradient(#121213,#121213),linear-gradient(#121213_50%,rgba(18,18,19,0.6)_80%,rgba(18,18,19,0)),linear-gradient(90deg,hsl(0,100%,63%),hsl(90,100%,63%),hsl(210,100%,63%),hsl(195,100%,63%),hsl(270,100%,63%))] hover:scale-150 active:scale-95 h-10 py-2 inline-flex  ">
+                    <div class="flex items-center fw-bold ">
+                      <span class=" text-white lg:inline p-1">
+                        Reserve your Vehicle Now
+                      </span>
+                    </div>
                   </button>
-                </div> */}
-              </div>
-            ))}
-          </div>
-          <button
-            className="carousel-button prev"
-            onClick={() => moveSlide(-1)}
-          >
-            ❮
-          </button>
-          <button className="carousel-button next" onClick={() => moveSlide(1)}>
-            ❯
-          </button>
-        </div>
-
-        <div className="text-center text-5xl pt-5 ">
-          <Link to="/booking">
-            <button
-              type="button"
-              class="text-white bg-[#2557D6] hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2"
-            >
-              Reserve your Vehicle Now
-            </button>
-          </Link>
-        </div>
-{/* ======================================================================================================== */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <h3 className="text-5xl font-bold text-center mb-12">
-              Why Choose Us?
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center ">
-                <div className="text-5xl mb-4">🚗</div>
-                <h4 className="text-xl font-semibold mb-2">Wide Selection</h4>
-                <p className="text-gray-600">
-                  From compact cars to luxury SUVs, we have it all.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl mb-4">💸</div>
-                <h4 className="text-xl font-semibold mb-2">Affordable Rates</h4>
-                <p className="text-gray-600">
-                  Competitive pricing with no hidden fees.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl mb-4">🕒</div>
-                <h4 className="text-xl font-semibold mb-2">24/7 Support</h4>
-                <p className="text-gray-600">
-                  We're here to assist you anytime, anywhere.
-                </p>
+                </Link>
               </div>
             </div>
-          </div>
-        </section>
-{/* ======================================================================================================== */}
-        <section className="best-event bg-sky-100">
-          <div className="text-center text-5xl pt-5 ">
-            <span>What</span> <br />
-            <span className="text-[#ff5733] mb-4">We Offer</span>
-          </div>
-          <div class="bento-event-grid ">
-            <div class="best-event ">
-              <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transform transition duration-300 hover:scale-105 hover:shadow-xl border-4 border-indigo-500/100 ">
-                <img
-                  className="w-full h-48 object-cover"
-                  src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt=""
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Rent A Car
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Solo Rent A Car is an independent car rental company in Sri
-                    Lanka since 2024. We offer luxurious customer service for
-                    you at the most affordable rental car rates.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="best-event">
-              <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transform transition duration-300 hover:scale-105 hover:shadow-xl border-4 border-indigo-500/100 ">
-                <img
-                  className="w-full h-48 object-cover"
-                  src="https://images.pexels.com/photos/804130/pexels-photo-804130.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt=""
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Airport Transfer
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    SR Rent A Car offer chauffeur-driven Airport Transfer and
-                    Hotel Transfer in Sri Lanka. We offer our service for
-                    Colombo International Airport & all hotels in Sri Lanka.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="best-event">
-              <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transform transition duration-300 hover:scale-105 hover:shadow-xl border-4 border-indigo-500/100 ">
-                {/* Car Image */}
-                <img
-                  className="w-full h-48 object-cover"
-                  src="https://images.pexels.com/photos/31473845/pexels-photo-31473845/free-photo-of-happy-newlyweds-driving-convertible-in-albuquerque.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt=""
-                />
-
-                {/* Card Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Wedding Rental
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">
-                    Your wedding day is the most memorable day which you’ll
-                    remember for the rest of your life. You try your very best
-                    to make it perfect with many items.
-                  </p>
-                </div>
-              </div>
+            <div className="flex justify-center items-center h-full w-50">
+              <svg className="size-6 animate-bounce text-white rounded ">
+                <ArrowDown />
+              </svg>
             </div>
           </div>
         </section>
 
-
+        <Choose />
+        <Offer />
         {/* ======================================================================================================== */}
-     
+        <div className="fixed bottom-6 right-6">
+          <button
+            onClick={() => setIsChatOpen(!isChatOpen)}
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all "
+          >
+            <MessageCircleIcon size={24} />
+          </button>
+          {isChatOpen && <ChatWindow onClose={() => setIsChatOpen(false)} />}
+        </div>
+
+        <Faq />
         <FooterContent src={logo}></FooterContent>
       </BodyContent>
     </>

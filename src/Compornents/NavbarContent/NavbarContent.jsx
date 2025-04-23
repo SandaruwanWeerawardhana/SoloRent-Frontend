@@ -1,13 +1,13 @@
 import React from "react";
 import "./navbarContent.css";
-import MenuContent from "../MenuContent/MenuContent";
+// import MenuContent from "../MenuContent/MenuContent";
 import logov from "../../assets/logov.png";
 import { Link } from "react-router-dom";
 
 function NavbarContent() {
   return (
     <>
-      <header>
+      <header className=" top-0 z-50">
         <div className="container fixed-top  ">
           <nav>
       
@@ -21,10 +21,10 @@ function NavbarContent() {
             </div>
     
             <ul class="pb-5 pt-0 ">
-              <MenuContent linkname="Home" url="/home" />
-              <MenuContent linkname="Booking" url="/FAQ" />
-              <MenuContent linkname="Vehicles" url="/booking" />
-              <MenuContent linkname="About" url="/contact" />
+               <li><Link to="/home">Home</Link></li>
+               <li><Link to="/FAQ">Booking</Link></li>
+               <li><Link to="/booking">Vehicles</Link></li>
+               <li><Link to="/contact">About</Link></li>
             </ul>
           </nav>
         </div>
@@ -34,3 +34,4 @@ function NavbarContent() {
 }
 
 export default NavbarContent;
+
