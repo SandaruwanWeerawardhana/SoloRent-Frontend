@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import BodyContent from "../../Compornents/BodyContent/BodyContent";
 import logo from "../../assets/logo.png";
-import "./home.css";
 import family from "../../assets/carsousel/family.jpg";
 import first from "../../assets/carsousel/first.jpg";
 import friends from "../../assets/carsousel/friends.jpg";
@@ -94,7 +93,7 @@ function Home() {
         <Choose />
         <Offer />
         {/* ======================================================================================================== */}
-        <div className="fixed bottom-6 right-6">
+        <div className="fixed bottom-6 right-6 m-5">
           <button
             onClick={() => setIsChatOpen(!isChatOpen)}
             className="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all "

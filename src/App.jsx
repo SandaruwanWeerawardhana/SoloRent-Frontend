@@ -9,10 +9,10 @@ import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
 import Vehicle from "./Pages/Dashboard/Vehicle/vehicle.jsx";
 import BookingView from "./Pages/Dashboard/BookingView/BookingView.jsx";
 import BookingForm from "./Pages/Booking/BookingForm.jsx";
-// import VehicleView from "./Pages/Dashboard/Vehicle/VehicleView.jsx";
 import AdminRegister from "./Pages/Dashboard/Admin/AdminRegister.jsx";
 import DashboardLanding from "./Pages/Dashboard/DashboardLanding.jsx";
 import Massage from "./Pages/Dashboard/Massage/Massage.jsx";
+import Service from "./Pages/Service/Service.jsx";
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem("token");
@@ -26,7 +26,7 @@ function App() {
         <NavbarContent />
         <Routes>
           <Route path="/home" element={<Home />} />
-          {/* <Route path="/FAQ" element={<FAQ />} /> */}
+          <Route path="/service" element={<Service/>} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<Home />} />

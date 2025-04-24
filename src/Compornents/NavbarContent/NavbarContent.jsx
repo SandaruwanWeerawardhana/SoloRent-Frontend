@@ -1,6 +1,5 @@
 import React from "react";
 import "./navbarContent.css";
-// import MenuContent from "../MenuContent/MenuContent";
 import logov from "../../assets/logov.png";
 import { Link } from "react-router-dom";
 
@@ -22,8 +21,8 @@ function NavbarContent() {
     
             <ul class="pb-5 pt-0 ">
                <li><Link to="/home">Home</Link></li>
-               <li><Link to="/FAQ">Booking</Link></li>
-               <li><Link to="/booking">Vehicles</Link></li>
+               <li><Link to="/service">Service</Link></li>
+               <li><Link to="/booking">Booking</Link></li>
                <li><Link to="/contact">About</Link></li>
             </ul>
           </nav>
