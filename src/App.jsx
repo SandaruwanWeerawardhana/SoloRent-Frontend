@@ -40,7 +40,6 @@ function App() {
             <Route path="vehicle" element={<Vehicle />} />
             <Route path="bookingview" element={<BookingView />} />
             <Route path="massage" element={<Massage />}/>
-            {/* <Route path="vehicleview" element={<VehicleView />} /> */}
             <Route path="dashboardview" element={<DashboardLanding />} />
             <Route path="adminregister" element={<AdminRegister />} />
           </Route>

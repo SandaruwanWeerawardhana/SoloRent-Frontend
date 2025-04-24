@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { X, Send, Loader2Icon } from "lucide-react";
 import MessageBubble from "./MessageBubble";
-// Sample suggested questions
+
 const suggestedQuestions = [
   "What services do you offer?",
   "How can I contact support?",
@@ -21,11 +21,11 @@ function ChatWindow({ onClose }) {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
-  // Auto-scroll to bottom when messages change
+
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-  // Focus input when chat opens
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -38,7 +38,7 @@ function ChatWindow({ onClose }) {
   };
   const handleSendMessage = async (text) => {
     if (!text.trim()) return;
-    // Add user message to chat
+
     const userMessage = {
       id: `user-${Date.now()}`,
       text,
@@ -49,11 +49,9 @@ function ChatWindow({ onClose }) {
     setMessage("");
     setIsLoading(true);
     try {
-      // Simulate API call with timeout
-      // In a real app, replace this with your actual API call
+    
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      // Sample bot response
-      // In production, this would come from your API
+
       const botResponse = {
         id: `bot-${Date.now()}`,
         text: getBotResponse(text),
@@ -62,7 +60,7 @@ function ChatWindow({ onClose }) {
       };
       setMessages((prev) => [...prev, botResponse]);
     } catch (error) {
-      // Handle error
+      
       console.error("Failed to get response:", error);
       setMessages((prev) => [
         ...prev,
@@ -76,6 +74,50 @@ function ChatWindow({ onClose }) {
     } finally {
       setIsLoading(false);
     }
+
+    
+  // try {
+  //   const response = await fetch("http://localhost:8080/api/chat", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ text }),  
+  //   });
+
+  //   if (!response.ok) {
+  //     throw new Error("API error");
+  //   }
+
+  //   const data = await response.json();
+
+  //   const geminiText =
+  //     data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+  //     "Sorry, I didn't understand that.";
+
+  //   const botResponse = {
+  //     id: `bot-${Date.now()}`,
+  //     text: geminiText,
+  //     isUser: false,
+  //     timestamp: new Date(),
+  //   };
+
+  //   setMessages((prev) => [...prev, botResponse]);
+  // } catch (error) {
+  //   console.error("Failed to get response:", error);
+  //   setMessages((prev) => [
+  //     ...prev,
+  //     {
+  //       id: `error-${Date.now()}`,
+  //       text: "Sorry, I couldn't process your request. Please try again.",
+  //       isUser: false,
+  //       timestamp: new Date(),
+  //     },
+  //   ]);
+  // } finally {
+  //   setIsLoading(false);
+  // }
+
   };
   const getBotResponse = (question) => {
     const lowerQuestion = question.toLowerCase();

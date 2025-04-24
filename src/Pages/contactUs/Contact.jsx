@@ -1,11 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import "./contact.css";
 import BodyContent from "../../Compornents/BodyContent/BodyContent";
 import logo from "../../assets/logo.png";
 import FooterContent from "../../Compornents/FooterContent/FooterContent";
 import Map from "../../Compornents/MapContent/Map";
+import Swal from "sweetalert2";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    massage: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/api/solorent/massage/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        Swal.fire({
+          title: "Message sent successfully!",
+          icon: "success",
+        });
+        setFormData({ name: "", email: "", contact: "", massage: "" });
+      } else {
+        Swal.fire({
+          title: "Failed to send message.",
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("An error occurred.");
+    }
+  };
+
   return (
     <>
       <BodyContent>
@@ -66,7 +105,7 @@ export default function Contact() {
 
           <div className="contact-form ">
             <h2>Send Us A Message</h2>
-            <form action="#" method="POST">
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
                 <input
@@ -74,6 +113,8 @@ export default function Contact() {
                   id="name"
                   name="name"
                   className="form-control"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -85,6 +126,8 @@ export default function Contact() {
                   id="email"
                   name="email"
                   className="form-control"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -94,8 +137,10 @@ export default function Contact() {
                 <input
                   type="tel"
                   id="phone"
-                  name="phone"
+                  name="contact"
                   className="form-control"
+                  value={formData.contact}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -103,8 +148,10 @@ export default function Contact() {
                 <label htmlFor="message">Your Message</label>
                 <textarea
                   id="message"
-                  name="message"
+                  name="massage"
                   className="form-control"
+                  value={formData.massage}
+                  onChange={handleChange}
                   required
                 ></textarea>
               </div>
