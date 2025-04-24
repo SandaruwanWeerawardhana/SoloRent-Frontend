@@ -76,9 +76,6 @@ function BookingForm() {
       <div className="">
         <section class="bg-white rounded-3 bookingsize mb">
           <div class="py-8 px-4 bg-blue-100 rounded-3 ">
-            {/* <h2 class="mb-4 text-4xl font-bold text-gray-600 dark:text-black text-center ">
-              Reserve A Vehicle
-            </h2> */}
             {vehicle ? (
               <>
               <div className="rounded-3"> 

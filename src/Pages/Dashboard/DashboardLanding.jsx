@@ -16,7 +16,10 @@ function DashboardLanding() {
         console.log(data);
         setData(data);
       });
-  }, []);
+  }, 
+  
+  
+  []);
   return (
     <>
       <div className="grid grid-cols-4  gap-4 ">

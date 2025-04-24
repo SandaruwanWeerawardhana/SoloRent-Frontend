@@ -53,8 +53,8 @@ function vehicle() {
 
   return (
     <>
-      <section class="bg-white dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+      <section class="bg-white dark:bg-gray-900 mb-5">
+        <div class="py-7 px-4 mx-auto max-w-2xl lg:py-9">
           <h2 class="mb-4 text-3xl font-bold text-gray-900 dark:text-white text-center ">
             Vehicle Register
           </h2>
