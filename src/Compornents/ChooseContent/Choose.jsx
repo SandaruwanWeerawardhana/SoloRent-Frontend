@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 function Choose() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true,    
+    });
+  }, []);
   return (
-    <section className="py-16">
+          
+    <section className="py-16"  data-aos="fade-up" data-aos-anchor-placement="top-bottom">
           <div className="container mx-auto px-4">
             <h3 className="text-5xl font-bold text-blue-800 text-center mb-12">
               Why Choose Us?

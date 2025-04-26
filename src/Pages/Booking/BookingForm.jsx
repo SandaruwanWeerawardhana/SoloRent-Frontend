@@ -9,21 +9,22 @@ function BookingForm() {
   const location = useLocation();
   const vehicle = location.state?.vehicle;
 
-  const initialState = useState({
-    customerName: "",
-    email: "",
-    contact: "",
-    vehicleID: vehicle?.id,
-    startDate: "",
-    endDate: "",
-    pickupTime: "",
-    pickupLocation: "",
-    returnLocation: "",
-    description: "",
-    bookingStatus: "PENDING",
-  });
-  
-  const [inputData, setinputData] = useState(initialState);
+const initialState = {
+  customerName: "",
+  email: "",
+  contact: "",
+  vehicleID: vehicle?.id || null,
+  startDate: "",
+  endDate: "",
+  pickupTime: "",
+  pickupLocation: "",
+  returnLocation: "",
+  description: "",
+  bookingStatus: "PENDING",
+};
+
+const [inputData, setinputData] = useState(initialState);
+
   console.log("Submitting data:", inputData);
 
   const handleChange = (e) => {

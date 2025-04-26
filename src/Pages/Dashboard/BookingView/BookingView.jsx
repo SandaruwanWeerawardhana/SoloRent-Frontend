@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Beer } from "lucide-react";
 
 function BookingView() {
   const [data, setData] = useState([]);
@@ -23,7 +24,7 @@ function BookingView() {
           </caption>
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" class="px-6 py-2">
                 ID
               </th>
               <th scope="col" class="px-6 py-3">
@@ -71,7 +72,7 @@ function BookingView() {
                   scope="row"
                   class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                 >
-                    {row.bookingID}
+                  {row.bookingID}
                 </th>
                 <td class="px-6 py-4"> {row.customerName} </td>
                 <td class="px-6 py-4"> {row.email} </td>
@@ -81,15 +82,16 @@ function BookingView() {
                 <td class="px-6 py-4"> {row.endDate} </td>
                 <td class="px-6 py-4"> {row.pickupLocation} </td>
                 <td class="px-6 py-4"> {row.returnLocation} </td>
-                <td class="px-6 py-4"> {row.bookingStatus} </td>
-                {/* <td class="px-6 py-4"> [] </td> */}
-
-                <td class="px-6 py-4 text-right">
+                <td class="px-3 py-4"> {row.bookingStatus} </td>
+                <td class="px-6 py-4">
                   <a
                     href="#"
                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
-                    Edit
+                    <button className="text-red-600 hover:text-red-900">
+                      
+                      <Beer />
+                    </button>
                   </a>
                 </td>
               </tr>

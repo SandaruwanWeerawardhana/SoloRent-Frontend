@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import { Mail } from "lucide-react";
+
 
 function Dashboard() {
   const navigate = useNavigate();
