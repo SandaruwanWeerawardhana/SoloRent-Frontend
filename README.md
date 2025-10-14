@@ -1,6 +1,11 @@
-# 🚗 Solo Rent
+<h1 align="center">🚗 Solo Rent</h1>
+
+## Backend and Frontend Links
+- **Frontend GitHub Repository:** [Solo Rent System Frontend](https://github.com/SandaruwanWeerawardhana/SoloRent-Frontend.git)
+- **Backend GitHub Repository:** [Solo Rent System Backend](https://github.com/SandaruwanWeerawardhana/SoloRent-Backend.git)
 
 Solo Rent is a Car Rental Management System designed to streamline rental operations and expose rental services to customers efficiently.
+
 
 - ✨ Features
 - 🚘 Browse available cars for rent
