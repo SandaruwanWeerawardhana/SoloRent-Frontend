@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-function vehicle() {
+function Vehicle() {
   const [inputData, setinputData] = useState({
     brand: "",
     fuelType: "",
@@ -26,7 +26,7 @@ function vehicle() {
     console.log("accessToken" + token);
 
     try {
-      const res = await axios.post(
+      await axios.post(
         "http://localhost:8080/api/solorent/vehicle/add",
         inputData,
         {
@@ -165,7 +165,7 @@ function vehicle() {
             <div class="flex items-center justify-between mt-6">
               <button
                 type="submit"
-                class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50font-medium rounded-lg text-4sm px-5 py-2.5  items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6] dark:focus:ring-[#2557D6]/50"
+                class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50 font-medium rounded-lg text-4sm px-5 py-2.5 items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6]"
               >
                 Add Vehicle
               </button>
@@ -177,4 +177,4 @@ function vehicle() {
   );
 }
 
-export default vehicle;
+export default Vehicle;

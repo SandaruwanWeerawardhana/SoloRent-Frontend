@@ -1,4 +1,3 @@
-import { useState } from 'react';
 
 // Base Dashboard Card Component
 const DashboardCard = ({ 
@@ -80,3 +79,5 @@ const DashboardCard = ({
     </div>
   );
 };
+
+export default DashboardCard;
