@@ -45,7 +45,7 @@ const [inputData, setinputData] = useState(initialState);
       };
 
       const response = await fetch(
-        "http://localhost:8080/api/solorent/booking/add",
+        "http://localhost:8081/api/solorent/booking/add",
         requestOptions
       );
 

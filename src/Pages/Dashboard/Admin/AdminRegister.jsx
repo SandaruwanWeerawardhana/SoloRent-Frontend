@@ -34,7 +34,7 @@ function AdminRegister() {
         redirect: "follow",
       };
 
-      const response = await fetch("http://localhost:8080/register",requestOptions);
+      const response = await fetch("http://localhost:8081/register",requestOptions);
 
       if (response.ok) {
         Swal.fire({

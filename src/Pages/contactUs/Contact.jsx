@@ -24,7 +24,7 @@ export default function Contact() {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:8080/api/solorent/massage/add",
+        "http://localhost:8081/api/solorent/massage/add",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

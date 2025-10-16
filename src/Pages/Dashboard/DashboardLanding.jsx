@@ -7,11 +7,11 @@ function DashboardLanding() {
 
   useEffect(() => {
     const fetchVehicles = fetch(
-      "http://localhost:8080/api/solorent/vehicle/get-all"
+      "http://localhost:8081/api/solorent/vehicle/get-all"
     ).then((res) => res.json());
 
     const fetchBookings = fetch(
-      "http://localhost:8080/api/solorent/booking/get-all"
+      "http://localhost:8081/api/solorent/booking/get-all"
     ).then((res) => res.json());
 
     Promise.all([fetchVehicles, fetchBookings])
@@ -29,7 +29,7 @@ function DashboardLanding() {
   return (
     <>
       <div className="grid grid-cols-4 grid-rows-1 mb-4 mt-4 gap-4">
-        <div className="col-start-2">
+        {/* <div className="col-start-2">
           <div className="bg-white rounded-lg border border-gray-500 text-center shadow-sm hover:shadow-md transition-shadow duration-300 p-6 w-full max-w-xs">
             <div className="mb-4">
               <h1 className="text-green-800 font-bold">Total Booking</h1>
@@ -46,8 +46,8 @@ function DashboardLanding() {
               )}
             </div>
           </div>
-        </div>
-
+        </div> */}
+{/* 
         <div className="col-start-3">
           <div className="bg-white rounded-lg border border-gray-500 text-center shadow-sm hover:shadow-md transition-shadow duration-300 p-6 w-full max-w-xs">
             <div className="mb-4">
@@ -65,7 +65,7 @@ function DashboardLanding() {
               )}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">

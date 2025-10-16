@@ -6,12 +6,23 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
 
-  // root: resolve(__dirname, 'src'),
-  // build: {
-  //   outDir: '../dist'
-  // },
-  // server: {
-  //   port: 5173
-  // }
+  build: {
+    sourcemap: false,
+    cssMinify: 'esbuild',
+    target: 'es2020',
+    chunkSizeWarningLimit: 1500,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        }
+      }
+    }
+  },
+  server: {
+    port: 5173
+  }
   
 })

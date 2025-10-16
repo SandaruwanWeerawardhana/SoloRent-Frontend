@@ -8,7 +8,7 @@ function Massage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/solorent/massage/get-all")
+      .get("http://localhost:8081/api/solorent/massage/get-all")
       .then((response) => {
         setData(response.data);
       })

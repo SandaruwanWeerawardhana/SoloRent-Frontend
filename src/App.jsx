@@ -3,10 +3,10 @@ import NavbarContent from "./Compornents/NavbarContent/NavbarContent.jsx";
 import "./index.css";
 import Home from "./Pages/home/Home.jsx";
 import Contact from "./Pages/contactUs/Contact.jsx";
-import Booking from "./Pages/Booking/booking.jsx";
+import Booking from "./Pages/Booking/Booking.jsx";
 import AdminLogin from "./Pages/Dashboard/Admin/AdminLogin.jsx";
 import Dashboard from "./Pages/Dashboard/Dashboard.jsx";
-import Vehicle from "./Pages/Dashboard/Vehicle/vehicle.jsx";
+import Vehicle from "./Pages/Dashboard/Vehicle/Vehicle.jsx";
 import BookingView from "./Pages/Dashboard/BookingView/BookingView.jsx";
 import BookingForm from "./Pages/Booking/BookingForm.jsx";
 import AdminRegister from "./Pages/Dashboard/Admin/AdminRegister.jsx";
@@ -43,6 +43,7 @@ function App() {
             <Route path="dashboardview" element={<DashboardLanding />} />
             <Route path="adminregister" element={<AdminRegister />} />
           </Route>
+          
         </Routes>
       </Router>
 

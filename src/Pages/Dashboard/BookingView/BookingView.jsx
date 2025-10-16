@@ -5,7 +5,7 @@ function BookingView() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/solorent/booking/get-all")
+    fetch("http://localhost:8081/api/solorent/booking/get-all")
       .then((res) => {
         return res.json();
       })

@@ -27,7 +27,7 @@ function Vehicle() {
 
     try {
       await axios.post(
-        "http://localhost:8080/api/solorent/vehicle/add",
+        "http://localhost:8081/api/solorent/vehicle/add",
         inputData,
         {
           headers: {

@@ -8,7 +8,7 @@ function booking() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/solorent/vehicle/get-all")
+    fetch("http://localhost:8081/api/solorent/vehicle/get-all")
       .then((res) => {
         return res.json();
       })
