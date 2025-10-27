@@ -1,5 +1,7 @@
 <h1 align="center">🚗 Solo Rent</h1>
 
+- **View Demo:** [View Demo](https://solorent.netlify.app)
+
 ## Backend and Frontend Links
 - **Frontend GitHub Repository:** [Solo Rent System Frontend](https://github.com/SandaruwanWeerawardhana/SoloRent-Frontend.git)
 - **Backend GitHub Repository:** [Solo Rent System Backend](https://github.com/SandaruwanWeerawardhana/SoloRent-Backend.git)
