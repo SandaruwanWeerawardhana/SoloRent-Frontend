@@ -1,14 +1,10 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    box-sizing: border-box;
-} */
+
 
 body {
     font-family: Arial, sans-serif;
     line-height: 1;
     font-weight: bold;
+    padding-top: 50px;
 }
 
 body.hover {
@@ -102,9 +98,4 @@ header nav ul li a:hover {
     header nav ul li a {
         font-size: 14px;
     }
-}
-
-/* Ensure content is not hidden behind fixed header */
-body {
-    padding-top: 50px;
 }
