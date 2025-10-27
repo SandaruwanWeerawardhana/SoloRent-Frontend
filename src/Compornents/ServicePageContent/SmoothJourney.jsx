@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './SmoothJourney.css';
+import './smoothJourney.css';
 import {Link} from 'react-router-dom'
 
 
