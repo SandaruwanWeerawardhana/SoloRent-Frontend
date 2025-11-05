@@ -1,6 +1,6 @@
 <h1 align="center">🚗 Solo Rent</h1>
 
-- **View Demo:** [View Demo](https://solorent.netlify.app)
+- **View Demo:** [View Demo](https://solorent-frontend-2-xlov.vercel.app/)
 
 ## Backend and Frontend Links
 - **Frontend GitHub Repository:** [Solo Rent System Frontend](https://github.com/SandaruwanWeerawardhana/SoloRent-Frontend.git)
