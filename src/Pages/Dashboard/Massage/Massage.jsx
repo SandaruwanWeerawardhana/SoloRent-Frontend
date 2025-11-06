@@ -36,14 +36,13 @@ function Massage() {
             setData((prevData) =>
               prevData.filter((item) => item.massageID !== id)
             );
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
           })
           .catch((err) => console.error("Delete error:", err));
-        [];
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
-        });
       }
     });
   };
