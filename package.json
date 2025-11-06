@@ -7,7 +7,9 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "browserslist:update": "npx update-browserslist-db@latest"
+    "browserslist:update": "npx update-browserslist-db@latest",
+    "test": "jest --coverage --watchAll=false",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -26,20 +28,31 @@
     "sweetalert2": "^11.17.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
     "@eslint/js": "^9.21.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
+    "babel-jest": "^29.7.0",
     "browserslist": "^4.26.3",
     "caniuse-lite": "^1.0.30001750",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.5.3",
     "sass": "^1.85.1",
     "tailwindcss": "^3.4.17",
+    "ts-jest": "^29.4.5",
     "vite": "^6.2.0"
   },
   "browserslist": [
