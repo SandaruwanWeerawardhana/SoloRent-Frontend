@@ -2,27 +2,15 @@ import { useState, useEffect } from "react";
 
 function DashboardLanding() {
   const [vehicleData, setVehicleData] = useState([]);
-  const [bookingData, setBookingData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchVehicles = fetch(
-      "http://localhost:8081/api/solorent/vehicle/get-all"
-    ).then((res) => res.json());
-
-    const fetchBookings = fetch(
-      "http://localhost:8081/api/solorent/booking/get-all"
-    ).then((res) => res.json());
-
-    Promise.all([fetchVehicles, fetchBookings])
-      .then(([vehicles, bookings]) => {
+    fetch("http://localhost:8081/api/solorent/vehicle/get-all")
+      .then((res) => res.json())
+      .then((vehicles) => {
         setVehicleData(vehicles);
-        setBookingData(bookings);
-        setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
-        setLoading(false);
       });
   }, []);
 

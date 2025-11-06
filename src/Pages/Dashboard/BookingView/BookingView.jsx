@@ -83,7 +83,7 @@ function BookingView() {
                     <button
                       type="button"
                       className="font-medium text-red-600 hover:text-red-800 inline-flex items-center gap-1"
-                      onClick={() => {/* TODO: action */}}
+                      onClick={() => {console.log("Action clicked")}}
                     >
                       <Beer className="h-4 w-4" />
                       Action
