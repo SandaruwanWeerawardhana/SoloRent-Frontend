@@ -102,7 +102,7 @@ function AdminLogin() {
 
                 <button
                   type="submit"
-                  class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50font-medium rounded-lg text-sm px-5 py-2.5  items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6] dark:focus:ring-[#2557D6]/50 mt-5"
+                  class="text-white bg-[#2557D6] hover:bg-[#2057D6] focus:ring-4 focus:ring-[#2557D6]/50font-medium rounded-lg text-sm px-5 py-2.5  items-center dark:focus:ring-[#2557D6]/50 me-2 mb-2 w-full text-center dark:bg-[#2557D6] dark:hover:bg-[#2057D6] mt-5"
                 >
                   Sign in
                 </button>
