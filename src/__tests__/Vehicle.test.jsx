@@ -50,7 +50,7 @@ describe('Vehicle', () => {
 
     test('renders register number input field', () => {
       renderVehicle();
-      expect(screen.getByPlaceholderText(' Register Number')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText('Register Number')).toBeInTheDocument();
     });
 
     test('renders price per date input field', () => {
@@ -117,7 +117,7 @@ describe('Vehicle', () => {
     test('updates register number field on input', () => {
       renderVehicle();
       
-      const registerInput = screen.getByPlaceholderText(' Register Number');
+      const registerInput = screen.getByPlaceholderText('Register Number');
       fireEvent.change(registerInput, { target: { value: 'ABC-1234' } });
       
       expect(registerInput.value).toBe('ABC-1234');
@@ -166,7 +166,7 @@ describe('Vehicle', () => {
       const fuelSelect = screen.getByDisplayValue('Select Fuel Type');
       fireEvent.change(fuelSelect, { target: { value: 'Petrol' } });
       
-      fireEvent.change(screen.getByPlaceholderText(' Register Number'), {
+      fireEvent.change(screen.getByPlaceholderText('Register Number'), {
         target: { value: 'ABC-1234' }
       });
       fireEvent.change(screen.getByPlaceholderText('Price Per Date'), {
@@ -242,8 +242,8 @@ describe('Vehicle', () => {
         target: { value: 'Toyota' }
       });
       
-      const submitButton = screen.getByText('Add Vehicle');
-      fireEvent.click(submitButton);
+      const form = screen.getByText('Add Vehicle').closest('form');
+      fireEvent.submit(form);
       
       await waitFor(() => {
         expect(Swal.fire).toHaveBeenCalledWith({
@@ -290,7 +290,7 @@ describe('Vehicle', () => {
       const fuelSelect = screen.getByDisplayValue('Select Fuel Type');
       fireEvent.change(fuelSelect, { target: { value: 'Diesel' } });
       
-      fireEvent.change(screen.getByPlaceholderText(' Register Number'), {
+      fireEvent.change(screen.getByPlaceholderText('Register Number'), {
         target: { value: 'XYZ-5678' }
       });
       
