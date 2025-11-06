@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1762451462837" clover="3.2.0">
-  <project timestamp="1762451462838" name="All files">
-    <metrics statements="298" coveredstatements="19" conditionals="121" coveredconditionals="4" methods="119" coveredmethods="3" elements="538" coveredelements="26" complexity="0" loc="298" ncloc="298" packages="22" files="29" classes="29"/>
+<coverage generated="1762454210868" clover="3.2.0">
+  <project timestamp="1762454210868" name="All files">
+    <metrics statements="298" coveredstatements="75" conditionals="121" coveredconditionals="12" methods="119" coveredmethods="15" elements="538" coveredelements="102" complexity="0" loc="298" ncloc="298" packages="22" files="29" classes="29"/>
     <package name="src">
       <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="App.jsx" path="E:\Project\Solo Rent\Solo Rent FrontEnd\src\App.jsx">
@@ -134,14 +134,14 @@
       </file>
     </package>
     <package name="src.Compornents.InputFields">
-      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="DatePicker.jsx" path="E:\Project\Solo Rent\Solo Rent FrontEnd\src\Compornents\InputFields\DatePicker.jsx">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="118" type="stmt"/>
       </file>
       <file name="TextField.jsx" path="E:\Project\Solo Rent\Solo Rent FrontEnd\src\Compornents\InputFields\TextField.jsx">
-        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="3" count="0" type="stmt"/>
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="354" type="stmt"/>
       </file>
     </package>
     <package name="src.Compornents.MapContent">
@@ -215,7 +215,7 @@
       </file>
     </package>
     <package name="src.Pages.Booking">
-      <metrics statements="36" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="12" coveredmethods="0"/>
+      <metrics statements="36" coveredstatements="22" conditionals="14" coveredconditionals="6" methods="12" coveredmethods="4"/>
       <file name="Booking.jsx" path="E:\Project\Solo Rent\Solo Rent FrontEnd\src\Pages\Booking\Booking.jsx">
         <metrics statements="14" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
         <line num="8" count="0" type="stmt"/>
@@ -234,29 +234,29 @@
         <line num="83" count="0" type="stmt"/>
       </file>
       <file name="BookingForm.jsx" path="E:\Project\Solo Rent\Solo Rent FrontEnd\src\Pages\Booking\BookingForm.jsx">
-        <metrics statements="22" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="68" count="0" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="188" count="0" type="stmt"/>
+        <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
+        <line num="9" count="59" type="stmt"/>
+        <line num="10" count="59" type="stmt"/>
+        <line num="12" count="59" type="stmt"/>
+        <line num="26" count="59" type="stmt"/>
+        <line num="28" count="59" type="stmt"/>
+        <line num="30" count="59" type="stmt"/>
+        <line num="31" count="28" type="stmt"/>
+        <line num="34" count="59" type="stmt"/>
+        <line num="35" count="9" type="stmt"/>
+        <line num="37" count="9" type="stmt"/>
+        <line num="38" count="9" type="stmt"/>
+        <line num="47" count="9" type="stmt"/>
+        <line num="52" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="57" count="6" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="75" count="59" type="stmt"/>
+        <line num="188" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.Pages.Dashboard">
@@ -282,28 +282,28 @@
       </file>
     </package>
     <package name="src.Pages.Dashboard.Admin">
-      <metrics statements="38" coveredstatements="19" conditionals="6" coveredconditionals="4" methods="6" coveredmethods="3"/>
+      <metrics statements="38" coveredstatements="38" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
       <file name="AdminLogin.jsx" path="E:\Project\Solo Rent\Solo Rent FrontEnd\src\Pages\Dashboard\Admin\AdminLogin.jsx">
-        <metrics statements="19" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
+        <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="8" count="36" type="stmt"/>
+        <line num="15" count="36" type="stmt"/>
+        <line num="16" count="36" type="stmt"/>
+        <line num="18" count="36" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="22" count="36" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
+        <line num="26" count="7" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="53" count="36" type="stmt"/>
       </file>
       <file name="AdminRegister.jsx" path="E:\Project\Solo Rent\Solo Rent FrontEnd\src\Pages\Dashboard\Admin\AdminRegister.jsx">
         <metrics statements="19" coveredstatements="19" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
@@ -380,22 +380,22 @@
       </file>
     </package>
     <package name="src.Pages.Dashboard.Vehicle">
-      <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="Vehicle.jsx" path="E:\Project\Solo Rent\Solo Rent FrontEnd\src\Pages\Dashboard\Vehicle\Vehicle.jsx">
-        <metrics statements="13" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="6" count="40" type="stmt"/>
+        <line num="15" count="40" type="stmt"/>
+        <line num="16" count="18" type="stmt"/>
+        <line num="21" count="40" type="stmt"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="28" count="6" type="stmt"/>
+        <line num="29" count="6" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="54" count="40" type="stmt"/>
       </file>
     </package>
     <package name="src.Pages.Service">
